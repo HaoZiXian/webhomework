@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>买猜商城</title>
+	<style type="text/css">
+		*{
+			margin: 0px;
+			padding: 0px;
+			font-family: 'Microsoft YaHei';
+		}
+		/* 导航栏 */
+		/* 一个大div设置4个小div */
+		#nav{
+			margin:0 auto;
+			width:1600px;
+			height:40px;
+            position:relative;
+            right:320px;
+		}
+		#nav1hi{
+			width: 180px;
+			height: 40px;
+			font-size: 13px;
+			left: 870px;
+			position: absolute;
+			color: #797778;
+		}
+		/* 第一行的两个超链接 */
+        #nav2link{	
+			width: 150px;
+		    height: 40px;
+			font-weight:bold; 
+			color: #5d5a5c;
+			position: absolute;
+			left: 1050px;
+		}
+		/* 设置超连接无边框 */
+		a:link{
+            text-decoration:none;	
+		}
+		#nav2link>a:link{
+			color:black;
+		}
+		#nav3ul{
+			height: 40px;
+			width: 300px;
+			position: absolute;
+			left: 1250px;
+		}
+		ul{
+			/* 换成横行 */
+			display:inline;
+			/* 消除ul每行前的点 */
+			list-style-type:none;
+		}
+		#nav3ul>ul>li{
+			width:90px;
+			height: 40px;
+			color: #5d5a5c;
+			float: left;
+			margin-right: 20px;
+		}
+		#nav3ul>ul>li>a:link{
+			color: black;
+		}
+		select{
+			border:2px solid #fff; 
+		}
+		#nav4weiboweixin{
+			height: 40px;
+			width: 70px;
+			padding-right:30px; 
+			position:absolute;
+			left: 1500px;
+		}
+		#nav4weiboweixin>img{
+			display: inline;
+		}
+		/* 开始写第二行的框 */
+		#two{
+			margin: 0 auto;
+			width: 1200px;
+			height: 100px;
+		}
+		#logo{
+			position: relative;
+			left: 30px;
+			top:17px;
+		}
+		/*搜索框的条件*/
+		#search{
+			height: 50px;
+			width: 540px;
+			position: relative;
+			left:200px; 
+			text-align: center;
+			border: 1px solid black;
+			border-right: 1px solid #ccc;
+		}
+		/* 放大镜的按钮边框 */
+		#button{
+			height: 50px;
+			width: 60px;
+			position: relative;
+			left: 980px;
+			bottom:50px;
+			text-align: center;
+			border: 1px solid black;
+			border-left: 1px solid #ccc;
+		}
+		#button>img{
+			position: relative;
+			padding-top: 5px;
+		}
+		/* 小手推车 */
+		#car{
+			position:relative;
+			left:1145px;
+			padding-bottom: 88px;
+		}
+		/* 第三行边框 */
+		#three{
+			margin: 0 auto;
+			width: 1500px;
+			height: 45px;
+			position: relative;
+			left: 130px;
+			/* float:left; */
+		}
+		/* 首页到最后一个这一行的间隔 */
+		#three>ul>a>li{ 
+			float:left;
+			height: 45px;
+			width: 80px;
+			text-align: center;
+			margin: 0px 5px;
+		}
+		/* 商品分类的下拉表单 */
+		#three1{
+			height: 45px;
+			width: 150px;
+			float:left;
+			text-align: center;
+		}	
+		#three>ul>a:link{color: black;}
+		#three>ul>a:hover{
+			color: #3aa747;
+			border-bottom: 3px solid #3aa747;
+		}
+		/* 上面写过select了，就不用再写了 */
+		#three1>a:link{color: black;}
+		/* 第一个大的背景图 */
+		#background-image1{
+			margin: 0 auto;
+			background:url(image/bgi.png);
+			height: 677px;
+			background-position: center;
+			background-repeat: no-repeat;
+		}
+		/* 首页>玉石 共200件商品那一行*/
+		#four{
+			width: 1200px;
+			margin: 0 auto;
+			display:inline;
+			line-height: 60px;
+			line-height: 60px;
+		}
+		#yushi{
+			color: #929191;
+			font-size: 12px;
+		}
+		#shangpin200{
+			display: inline;
+			color: #929191;
+			font-size: 9px;
+			position: relative;
+		    right:15px;
+		}
+		/* 三行的大div，包括3个小的div */
+		#big3{
+
+			margin: 0 auto;
+			width: 1200px;
+			height:135px;
+			/* background-color: red; */
+		}
+		/* 每个横行的条件 */
+		.row{
+			margin: 0 auto;
+			width: 1200px;
+			height:45px;
+			border: 1px solid #ccc;
+			/* display:inline; */
+		}
+		/* 表头部分：第一列 */
+		.col1{
+			float:left;
+			width: 120px;
+			text-align: center;
+			line-height: 45px;
+			height: 45px;
+			background-color: #e5e5e5;
+		}
+		/* 除表头外的行部分 */
+		.row>ul>li{
+			width: 120px;
+			line-height: 45px;
+			text-align: center;
+			float:left;
+		}
+		.row>ul>li>a:link{
+			color: #737373;
+		}
+		.row>ul>li>a:hover{
+			color: #3aa747;
+		}
+		/* 第三行右下角的更多 */
+		#more{
+			position: relative;
+			right: 10px;
+			top: 12px;
+			font-size: 15px;
+		}
+		#more:link{
+			color: #737373;
+		}
+		#more:hover{
+			color: #3aa747;
+		}
+		/* 地区那一行和下面图片的空白 */
+		#blank{
+			margin: 0 auto;
+			width: 1920px;
+			height: 20px;
+		}
+		/* 开始那八张图了 */
+		/* 做背景图而不是图片 固定 */
+		/* 八张图在一个大di里，每一个又是小的div*/
+		#bgi{
+			margin: 0 auto;
+			width: 1255px;
+			height: 685px;
+			color: #fff;
+		}
+		#bgi>div{
+			/* 加一个向左浮动 */
+			/* 这样才能排列有序 */
+			float: left;
+			/* 设置每一个小div的长和宽 */
+			width: 275px;
+			height: 295px; 
+			/* 设置小div之间的边框 */
+			border:1px solid black; 
+			/* 小div之间的距离，把图片分开 */
+			/* 离上边和左边都是30px */
+			margin-top:30px;
+			margin-left:30px;
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+		/* 设成背景图，不是图片 */
+		.bgi1{background:url(image/bgi1.png);}
+		.bgi2{background:url(image/bgi2.png);}
+		.bgi3{background:url(image/bgi3.png);}
+		.bgi4{background:url(image/bgi4.png);}
+		.bgi5{background:url(image/bgi5.png);}
+		.bgi6{background:url(image/bgi6.png);}
+		.bgi7{background:url(image/bgi7.png);}
+		.bgi8{background:url(image/bgi8.png);}
+		/* 商品信息 */
+		.bgi-imessage{
+			height: 60px;
+			text-align: center;
+			/* rgba（红，绿，蓝，透明度） */
+			background-color: rgba(76,76,76,0.8);
+			position: relative;
+			top: 235px; 
+			line-height: 30px;
+		}
+		/* 加两个div，鼠标不管动哪儿都行 */
+		#bgi>div:hover div{
+			position: relative;
+			height: 195px;
+			text-align: center;
+			padding-top: 100px; 
+			font-size: 20px;
+			top:0px;
+			background-color: rgba(76,76,76,0.8);
+		}
+		/* 最后一排图和下面资质认证啥的那些白的 */
+		#blank2{
+			height: 100px;
+		}
+		/* 倒数第二行 */
+		#row2{
+			margin: 0 auto;
+			height: 100px;
+			text-align: center;
+			background-color: #f5f5f5;
+		}
+		/* 4个小div，把他们分开 资质认证那一行的字儿*/
+		.devide4div{
+			float: left;
+			width: 220px;
+			height: 50px;
+			color: #5a5a5a;
+			text-align: left;
+			padding-left: 20px;
+			margin-right: 20px;
+			border-right:1px solid #e0e0e0;
+		}
+		/* 资质认证到售后无忧还有四个小div */
+		#smalldiv4{
+			margin: 0 auto;
+			width:1400px; 
+			height: 50px;
+			text-align: center;
+			position: relative;
+			left: 170px;
+			top: 30px;
+		}
+		/* 资质认证那一行的四个图片 */
+		.img4{
+			float: left;
+			position: relative;
+			right: 10px;
+		}
+		/* 资质认证等四个上一行的大字儿 */
+		.word1{
+			font-size: 20px;
+		}
+		/* 资质认证下面那一行的小字儿 */
+		.word2{
+			font-size: 10px;
+		}
+		/* 最底下黑色那一块儿 */
+		#bottom{
+			margin: 0 auto;
+			background-color: #323232;
+			height: 95px;
+			text-align: center;
+			color: #f5f5f5;
+		}
+		#bottom>a:link{
+			color:#f5f5f5;
+		}
+		/* 竖的定位（固定） */
+		#shu{
+			margin: 0 auto;
+			height: 450px;
+			width: 60px;
+			background-color: #030a09;
+			position: fixed;
+			right: 0px;
+			top: 200px;
+		}
+		.shu1{
+			width: 60px;
+			height:90px;
+			/* 中间图片的位置居中 */
+			text-align: center;
+			/* 设置高度 */
+			line-height: 115px;
+			/* 分割线 */
+			border-bottom:1px solid #ccc; 
+		}
+	</style>
+</head>
+<body>
+	<form action="#" method="post">
+		<div id="nav">
+			<div id="nav1hi">
+				嘿，欢迎来买猜商城！
+			</div>
+			<div id=nav2link>
+				<a href="#">请登录</a>
+				&nbsp;&nbsp;&nbsp;
+				<a href="#">免费注册</a>
+			</div>
+			<div id="nav3ul">
+				<ul>
+					<li class="nav3ul">
+					    <select name="class1">
+					    	<option value="1">我的订单</option>
+					    </select>	
+					</li>
+					<li class="nav3ul">
+					    <select name="class2">
+					    	<option value="2">我的买猜</option>
+					    </select>	
+					</li>
+					<li><a href="#">帮助中心</a></li>
+				</ul>
+			</div>
+            <div id="nav4weiboweixin">
+            	<a href="#"><img src="image/weibo.png" alt="这是微博"></a>
+            	<a href="#"><img src="image/weixin.png" alt="这是微信"></a>
+            </div>
+        </div>
+        <div id="two">
+        	<img id="logo" src="image/logo.png" alt="这是商城标志">
+        	<input type="text" name="text" id="search" value="请输入搜索内容">
+        	<a href="#">
+        		<div id="button"><img src="image/search.png" alt="这是搜索按键">
+        		</div>
+        	</a>
+        	<a href="#">
+        		<div id="car">
+        			<img id="car" src="image/car.png" alt="这是小手推车">
+        		</div>
+        	</a>
+        </div>
+        <div id="three">
+        	<div id="three1">
+        		<select name="class3">
+        			<option value="1" selected>
+        			全部商品分类
+        		    </option>
+        		</select>
+        	</div>
+        	<ul>
+        		<a href="#"><li>首页</li></a>
+				<a href="#"><li>名酒</li></a>
+				<a href="#"><li>茗茶</li></a>
+				<a href="#"><li>玉石</li></a>
+				<a href="#"><li>休闲食品</li></a>
+				<a href="#"><li>洗护用品</li></a>
+				<a href="#"><li>土特产</li></a>
+				<a href="#"><li>积分商城</li></a>
+				<a href="#"><li>抽奖游戏</li></a>
+        	</ul>
+        </div>
+        <div id="background-image1"></div>
+        <div id="big3">
+        	<div class="row">
+        		<div class="col1">玉石</div>
+        		<ul>
+        			<li><a href="#">白玉</a></li>
+					<li><a href="#">碧玉</a></li>
+					<li><a href="#">黄玉</a></li>
+					<li><a href="#">和田玉</a></li>
+					<li style="color:#3aa747;">翡翠</li>
+					<li><a href="#">绿松玉</li></a>
+					<li><a href="#">墨玉</a></li>
+					<li></li>
+        		</ul>
+        	</div>
+        	<div class="row">
+        	    <div class="col1">其他</div>
+        	    <ul>
+        		    <li style="color:#3aa747;">吊坠</li>
+					<li><a href="#">扳指</a></li>
+					<li><a href="#">手镯</a></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+        	    </ul>
+            </div>
+            <div class="row">
+            	<div class="col1">地区</div>
+            	<ul>
+            		<li><a href="#">北京</a></li>
+					<li><a href="#">安徽</a></li>
+					<li><a href="#">福建</a></li>
+					<li><a href="#">内蒙古</a></li>
+					<li><a href="#">宁夏</a></li>
+					<li><a href="#">黑龙江</a></li>
+					<li><a href="#">河北</a></li>
+            	</ul>
+            	<a id="more" href="#">更多</a>
+            </div>
+        </div>
+        <div id="blank"></div>
+        <div id="bgi">
+        	<div class="bgi1">
+        		<div class="bgi-imessage">
+        		竞猜价：¥399.00
+					<br/>
+					翡翠千手观音吊坠
+				</div>
+			</div>
+			<div class="bgi2">
+				<div class="bgi-imessage">
+					竞猜价：¥1980.00
+					<br/>
+					翡翠龙凤吊坠
+				</div>
+			</div>
+			<div class="bgi3">
+				<div class="bgi-imessage">
+					竞猜价：¥199.00
+					<br/>
+					翡翠花蕊吊坠
+				</div>
+			</div>
+			<div class="bgi4">
+				<div class="bgi-imessage">
+					竞猜价：¥199.00
+					<br/>
+					翡翠如意吊坠
+				</div>
+			</div>
+			<div class="bgi5">
+				<div class="bgi-imessage">
+					竞猜价：¥99.00
+					<br/>
+					翡翠婵吊坠
+				</div>
+			</div>
+			<div class="bgi6">
+				<div class="bgi-imessage">
+					竞猜价：¥99.00
+					<br/>
+					翡翠观音（浅色）吊坠
+				</div>
+			</div>
+			<div class="bgi7">
+				<div class="bgi-imessage">
+					竞猜价：¥199.00
+					<br/>
+					翡翠平安扣（深色）吊坠
+				</div>
+			</div>
+			<div class="bgi8">
+				<div class="bgi-imessage">
+					竞猜价：¥199.00
+					<br/>
+					翡翠如意吊坠
+				</div>
+			</div>
+		</div>
+		<div class="blank2"></div>
+		<div id="row2">
+			<div id="smalldiv4">
+				<div class="devide4div">
+					<img class="img4" src="image/img4.1.png" alt="资质认证">
+						<p class="word1">资质认证</p>
+						<p class="word2">服务商100%实名认证</p>
+				</div>
+				<div class="devide4div">
+					<img class="img4" src="image/img4.2.png" alt="支付安全">
+					<p class="word1">支付安全</p>
+					<p class="word2">明码标价支付及信息安全</p>
+				</div>
+				<div class="devide4div">
+					<img class="img4" src="image/img4.3.png" alt="保险赔付">
+					<p class="word1">保险赔付</p>
+					<p class="word2">为您提供担保赔付</p>
+				</div>
+				<div class="devide4div">
+					<img class="img4" src="image/img4.4.png" alt="售后无忧">
+					<p class="word1">售后无忧</p>
+					<p class="word2">服务出问题经理全程跟进</p>
+				</div>
+			</div>
+		</div>
+		<div id="bottom">
+			<br>
+			<a href="#">首页</a>&nbsp;&nbsp;| &nbsp;&nbsp;<a href="#">工商代理</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">财务代记账</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">股权交易与变更</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">企业贷款</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">办公室租赁</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">社保公积金代理</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">法律服务</a>
+			<br>
+			<br>
+			© 2017-2018 买猜商城有限公司 版权所有
+		</div>	
+		<div id="shu">
+				<a href="#"><div class="shu1"><img src="image/car2.png"></div></a>
+				<a href="#"><div class="shu1"><img src="image/qq.png"></div></a>
+				<a href="#"><div class="shu1"><img src="image/foot.png"></div></a>
+				<a href="#"><div class="shu1"><img src="image/2wm.png"></div></a>
+				<a href="#"><div class="shu1" style="border-bottom: none;"><img src="image/top.png"></div></a>
+		</div>
+	</form>
+</body>
+</html>
